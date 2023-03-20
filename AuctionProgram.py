@@ -25,17 +25,32 @@ while not bid_again:
             wrong_input=False
 
 
-    Other_bid=input("Is there any other Person who wants to bid? Y or N").lower()
+    Other_bid=input("Is there any other Person who wants to bid? Y or N:- \n").lower()
     bid_info={}
             
     def auction(name,bid):        
+                
                 bid_info["Name"]=name
                 bid_info["Bid_amount"]=bid
                 Bidder_list.append(bid_info)
-
+                
+            
                                       
     auction(name=bider_name, bid=new_amount)
 
+    def Highest_bid(BidINfos):
+        highest=0
+        person=""
+        for bidder in BidINfos:
+                Bid_amount12=BidINfos[bidder]
+        
+                if type(Bid_amount12) is int:
+                    Bid_amou=Bid_amount12
+                    if Bid_amou>=highest:
+                        highest=Bid_amou
+                        
+        print(f"The Winner is  Bided the Highest amount Rs:-{highest}")
+    Highest_bid(BidINfos=bid_info)
     
     wrong_choice=False
     while not wrong_choice:
@@ -45,8 +60,7 @@ while not bid_again:
         elif Other_bid=="n":
             bid_again=True
             wrong_choice=True
-            print(f"The Highest bid is   {highest} ")
+            
         else:
             wrong_choice=False
-            print("Wrong Choice Choose Y or N")
-print(Bidder_list)
+            print("Wrong Choice Choose Y or N. ")
